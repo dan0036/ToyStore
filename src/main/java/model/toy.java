@@ -15,6 +15,7 @@ public class toy {
         this.title = title;
         this.quantity = quantity;
         this.frequency = frequency;
+        lastId++;
     }
 
 }
