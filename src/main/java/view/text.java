@@ -6,10 +6,14 @@ public class text {
     static String askInputFreq = "Введите частоту выпадения элемента от 0 до 100: ";
     static String askPrizeQuant = "Введите колличество призов: ";
 
+    static public String toyDelSuccess = "Игрушка удалена успешно.";
+    static public String toyDelUnSuccess = "Игрушка не удалена (ошибка в названии?)";
+
+
     static String announcePrize = "Вы выиграли: ";
 
 
-    static String mainMenu = "Выберите действие:\n " +
+    static String mainMenu = "Выберите действие:\n" +
             "0 - Открыть магазин.\n" +
             "1 - Добавить игрушку в магазин.\n" +
             "2 - Удалить игрушку из магазина.\n" +

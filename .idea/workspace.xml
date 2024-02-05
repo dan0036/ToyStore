@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38d11968-df8d-4931-83a4-df91e6038ebf" name="Changes" comment="initial commit">
+    <list default="true" id="38d11968-df8d-4931-83a4-df91e6038ebf" name="Changes" comment="2nd commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/lottery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/lottery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/toy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/toy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/text.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/view.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/view.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store.txt" beforeDir="false" afterPath="$PROJECT_DIR$/store.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp.new" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707125141231</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2nd commit">
+      <option name="closed" value="true" />
+      <created>1707165499217</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707165499217</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,7 +103,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="2nd commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="2nd commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -109,16 +117,33 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="9" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="28" />
+        </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/store.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="18" />
+          <url>file://$PROJECT_DIR$/src/main/java/model/lottery.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/controller.java</url>
-          <line>13</line>
-          <properties field="prizeList" class="controller.controller" />
-          <option name="timeStamp" value="20" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/lottery.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/lottery.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/model/lottery.java</url>
+          <line>9</line>
+          <properties class="model.lottery" method="pushUpdateIssueList">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

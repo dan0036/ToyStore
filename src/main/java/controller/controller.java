@@ -1,12 +1,8 @@
 package controller;
 
 import model.store;
-
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.random.RandomGenerator;
-
-import static java.lang.Math.random;
 
 public class controller {
 
@@ -19,7 +15,7 @@ public class controller {
         ArrayList<Integer> storeFreqList = new ArrayList<>(store.getStoreFreqs());
         int sumAllFreqs = store.getAllStoreFreqs();
         for (int freq: storeFreqList) {
-            int weight = (freq*100) / sumAllFreqs;
+            int weight = (freq*10) / sumAllFreqs;
             while (weight > 0) {
                 freqRange.add(store.getToyIdByFreq(freq));
                 weight--;

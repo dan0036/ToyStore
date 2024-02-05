@@ -1,15 +1,14 @@
 package model;
 
+import view.text;
+
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.random.RandomGenerator;
 
 public class store {
 
-    public static ArrayList<toy> store = new ArrayList<>();
+    public static ArrayList<toy> store;
     public static String storePath = "store.txt";
 
     public static String getToyTitleById(int id) throws RuntimeException{
@@ -56,22 +55,19 @@ public class store {
         for (int i = 0; i < store.size(); i++) {
             if (store.get(i).title.equals(title)) {
                 store.remove(store.get(i));
+                System.out.println(text.toyDelSuccess);
                 return;
             }
+            System.out.println(text.toyDelUnSuccess);
         }
     }
 
     static public void pullUpdateStore(String storePath){
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(storePath))){
             ArrayList filler = new ArrayList(Arrays.asList(bufferedReader.readLine().split(";")));
-            store.add(new toy(Integer.parseInt((String) filler.get(0)), (String) filler.get(1), (Integer) filler.get(2), (Integer) filler.get(3)));
-        } catch (FileNotFoundException e) {
-            try {
-                Files.createFile(Path.of(storePath));
-            } catch (IOException ex) {
-                System.out.println("Проблемы с созданием файла ассортимента.");
-                throw new RuntimeException("Проблемы с созданием файла ассортимента.");
-            }
+            store.add(new toy(Integer.parseInt((String) filler.get(0)), (String) filler.get(1), Integer.parseInt((String) filler.get(2)), Integer.parseInt((String) filler.get(3))));
+        } catch (FileNotFoundException | NullPointerException e) {
+            File newFile = new File(storePath);
         } catch (IOException e) {
             throw new RuntimeException("Нечитаемый файл ассортимента.");
         }

@@ -1,8 +1,6 @@
 package model;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class lottery {
@@ -14,6 +12,7 @@ public class lottery {
             for (int id: prizeList) {
                 bufferedWriter.append(String.valueOf(id));
                 bufferedWriter.newLine();
+                bufferedWriter.flush();
             }
         } catch (IOException e) {
             throw new RuntimeException("Проблема сохранения файла результатов лотереи.");
