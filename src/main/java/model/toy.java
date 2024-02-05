@@ -5,9 +5,9 @@ public class toy {
     public String title;
     public int quantity;
     public int frequency;
-    private static int lastId;
+    private static int lastId = 0;
 
-    public toy(Object o, Object object, Object o1, Object object1) {
+    public toy(int id, String title, int quantity, int frequency) {
     }
 
     public toy(String title, int quantity, int frequency) {
@@ -15,7 +15,6 @@ public class toy {
         this.title = title;
         this.quantity = quantity;
         this.frequency = frequency;
-        store.store.add(this);
     }
 
 }

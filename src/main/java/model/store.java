@@ -9,10 +9,26 @@ import java.util.random.RandomGenerator;
 
 public class store {
 
-    public static ArrayList<toy> store;
-    String storePath = "store.txt";
+    public static ArrayList<toy> store = new ArrayList<>();
+    public static String storePath = "store.txt";
 
-    public static RandomGenerator getStoreIds() {
+    public static String getToyTitleById(int id) throws RuntimeException{
+         for (toy toy: store)
+             if (toy.id == id) {
+                return toy.title;
+            }
+        throw new RuntimeException("Игрушка закончилась в магазине?");
+    }
+
+    public static int getToyIdByFreq(int freq) throws RuntimeException{
+         for (toy toy: store)
+             if (toy.frequency == freq) {
+                return toy.id;
+            }
+        throw new RuntimeException("Игрушка закончилась в магазине?");
+    }
+
+    public static ArrayList getStoreIds() {
         ArrayList result = new ArrayList<>();
         for (toy toy : store) {
             result.add(toy.id);
@@ -20,10 +36,35 @@ public class store {
         return result;
     }
 
-    public void pullUpdateStore(String storePath){
+    public static ArrayList getStoreFreqs() {
+        ArrayList result = new ArrayList<>();
+        for (toy toy : store) {
+            result.add(toy.frequency);
+        }
+        return result;
+    }
+
+    public static int getAllStoreFreqs() {
+        int result = 0;
+        for (toy toy : store) {
+            result += toy.frequency;
+        }
+        return result;
+    }
+
+    public static void deleteToyByTitle(String title) {
+        for (int i = 0; i < store.size(); i++) {
+            if (store.get(i).title.equals(title)) {
+                store.remove(store.get(i));
+                return;
+            }
+        }
+    }
+
+    static public void pullUpdateStore(String storePath){
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(storePath))){
             ArrayList filler = new ArrayList(Arrays.asList(bufferedReader.readLine().split(";")));
-            store.add(new toy((int) filler.get(0), filler.get(1), (int) filler.get(2), (int) filler.get(3)));
+            store.add(new toy(Integer.parseInt((String) filler.get(0)), (String) filler.get(1), (Integer) filler.get(2), (Integer) filler.get(3)));
         } catch (FileNotFoundException e) {
             try {
                 Files.createFile(Path.of(storePath));
@@ -36,14 +77,16 @@ public class store {
         }
     }
 
-    public void pushUpdateStore(String storePath){
-        try (FileWriter fileWriter = new FileWriter(storePath)){
+    static public void pushUpdateStore(String storePath){
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(storePath))){
             for (toy toy: store) {
-                fileWriter.write(String.join(";",
+                bufferedWriter.append(String.join(";",
                         String.valueOf(toy.id),
                         toy.title,
                         String.valueOf(toy.quantity),
                         String.valueOf(toy.frequency)));
+                bufferedWriter.newLine();
+                bufferedWriter.flush();
             }
         } catch (IOException e) {
             throw new RuntimeException("Проблема сохранения файла ассортимента.");

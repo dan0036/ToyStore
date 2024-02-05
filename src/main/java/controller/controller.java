@@ -1,36 +1,37 @@
 package controller;
 
+import model.store;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.random.RandomGenerator;
 
+import static java.lang.Math.random;
+
 public class controller {
 
-    ArrayList<int> freqRange = new ArrayList();
-    ArrayList prizeList = new ArrayList<>();
+    static ArrayList freqRange = new ArrayList();
+    public static ArrayList prizeList = new ArrayList<>();
 
-    public void addFreqRange(int toyId, int freq){
-        if (freqRange.size() < 100) {
-            int i = 0;
-            while (i < freq && (i + freq) <=100 ) {
-                freqRange.add(toyId);
-                i++;
+
+
+    public static void setFreqRange(){
+        ArrayList<Integer> storeFreqList = new ArrayList<>(store.getStoreFreqs());
+        int sumAllFreqs = store.getAllStoreFreqs();
+        for (int freq: storeFreqList) {
+            int weight = (freq*100) / sumAllFreqs;
+            while (weight > 0) {
+                freqRange.add(store.getToyIdByFreq(freq));
+                weight--;
             }
         }
     }
 
-    public void finalizeFreqRange(){
-        int i = freqRange.size();
-        while (i < 101) {
-            freqRange.add(Random.from(model.store.getStoreIds());
-            i++;
-        }
-    }
-
-    public void setPrizeList(int prizeQuant){
+    static public void setPrizeList(int prizeQuant){
         int i = 0;
         while (i < prizeQuant) {
-            prizeList.add(Random.from((RandomGenerator) freqRange));
+            Random random = new Random();
+            prizeList.add(freqRange.get(random.nextInt(0, freqRange.size())));
             i++;
         }
     }
